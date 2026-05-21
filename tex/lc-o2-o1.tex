@@ -1,0 +1,352 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{doi}
+\usepackage{hyperref}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\SU}{\mathrm{SU}}
+
+\title{Local Spectral Closure of the Capacity--Metric Bridge\\[4pt]
+\normalsize\itshape LC-O2-O1 of the Lorentz--Capacity Sub-Programme}
+\author{J\'er\^ome Beau\\[2pt]
+\small Independent Researcher\\
+\small \texttt{jerome.beau@cosmochrony.org}}
+\date{2026}
+
+\begin{document}
+
+  \maketitle
+
+  \begin{abstract}
+    We close the local bridge between the capacity radius and the temporal co-metric
+    component in the Lorentz-capacity formulation of the Cosmochrony programme.
+    The local theory introduces an occupancy field $\epsilon(x)$ through the residual
+    Born--Infeld capacity radius $R(x)^{2}=1-\epsilon(x)$, while the metric formulation
+    introduces the same radius through $R(x)^{2}=-2g^{\tau\tau}(x)$.
+    Their equivalence was previously stated as an open analytic bridge in~\cite{Beau2026lco2}.
+    We prove that the identity
+    \[
+      \epsilon(x)=1+2g^{\tau\tau}(x)
+    \]
+    follows directly from local admissibility data.
+    The key input is that $\epsilon(x)$ is a quadratic occupancy in the rank-three sector
+    $\Sym^{2}(V_{\rho})$, normalised by the maximal Born--Infeld capacity
+    $\sigma_{\mathrm{max}}=c_{\chi}^{2}$.
+    A local version of the admissibility-weight argument of~\cite{Beau2026w1} then gives
+    \[
+      A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr).
+    \]
+    Using the principal-symbol identification of the effective operator~\cite{Beau2026q6b,Beau2026q11},
+    together with the flat-space normalisation $A_{\tau}^{\infty}=2$,
+    $g^{\tau\tau,\infty}=-\tfrac{1}{2}$, yields
+    \[
+      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
+    \]
+    Therefore $R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x)$.
+    No use is made of the Einstein equation.
+    The bridge is closed spectrally from the local admissibility form alone.
+  \end{abstract}
+
+  \medskip
+  \noindent\textbf{Keywords.}
+  local capacity radius; spectral occupancy; admissibility-weight reduction;
+  temporal co-metric; Born--Infeld capacity; effective Lorentzian geometry;
+  gravitational time dilation; Cosmochrony.
+
+  \newpage
+  \tableofcontents
+
+  \newpage
+  \section{Introduction}
+    \label{sec:introduction}
+
+    The Lorentz-capacity formulation~\cite{Beau2026lco2} introduces a local occupancy
+    field $\epsilon(x)$ measuring how much of the projective capacity at $x$ is already
+    locked by admissible spectral structure.
+    On the capacity side, the residual radius is defined by
+    \[
+      R(x)^{2} := 1-\epsilon(x).
+    \]
+    On the metric side, the same quantity is defined by the temporal co-metric component,
+    \[
+      R(x)^{2} := -2g^{\tau\tau}(x).
+    \]
+    The open problem LC-O2-O1 of~\cite{Beau2026lco2} (Remark~3.2 and Section~7.3) is to prove
+    \[
+      1-\epsilon(x)=-2g^{\tau\tau}(x)
+    \]
+    from admissibility data alone, without importing the Einstein equation from the
+    spectral gravity branch.
+
+    The natural object controlling this bridge is the local temporal coefficient
+    $A_{\tau}(x)$ of the effective admissibility operator $L_{\mathrm{eff}}$.
+    In the homogeneous flat limit, this coefficient is fixed by~\cite{Beau2026q11}:
+    \[
+      A_{\tau}^{\infty}=2.
+    \]
+    When a fraction $\epsilon(x)$ of the local admissible fibre is already occupied,
+    the coefficient is reduced by the free quadratic capacity fraction:
+    \[
+      A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr).
+    \]
+    This is the local counterpart of the admissibility-weight convergence argument
+    of~\cite{Beau2026w1}.
+    The reduction is exact only if $\epsilon(x)$ is defined as a quadratic occupancy
+    in the rank-three sector $\Sym^{2}(V_{\rho})$.
+    It does not hold for an arbitrary additive scalar density.
+
+    Once this local weight reduction is established, the metric bridge follows from the
+    principal-symbol reconstruction of $L_{\mathrm{eff}}$:
+    \[
+      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
+    \]
+    The factor $\tfrac{1}{4}$ is fixed by the LCII normalisation $R^{2}=-2g^{\tau\tau}$,
+    together with the flat-space values $A_{\tau}^{\infty}=2$ and
+    $g^{\tau\tau,\infty}=-\tfrac{1}{2}$.
+    This identification belongs to the operator-symbol reconstruction of the effective
+    metric~\cite{Beau2026q6b,Beau2026q11} and does not use the Einstein equation.
+
+    Section~\ref{sec:quadratic-occupancy} defines the quadratic local occupancy precisely.
+    Section~\ref{sec:weight-reduction} proves the local weight reduction (Lemma).
+    Section~\ref{sec:principal-symbol} records the principal-symbol identification.
+    Section~\ref{sec:spectral-closure} states and proves the main result (Theorem and Corollary).
+    Section~\ref{sec:discussion} discusses the role of the quadratic definition and the
+    scope of the result.
+
+  \section{Quadratic local occupancy}
+    \label{sec:quadratic-occupancy}
+
+    Let $V_{\rho}$ be the Weil module of $\mathrm{Heis}_{3}(\mathbb{Z}/q\mathbb{Z})$ forced
+    by admissibility~\cite{Beau2026q6b}.
+    The local rank-three effective sector is identified as
+    \[
+      H_{\mathrm{eff}}(x)\simeq \Sym^{2}(V_{\rho}),
+    \]
+    equipped with its $\SU(2)$-invariant quadratic norm.
+    The local Born--Infeld capacity is measured in this norm.
+
+    \begin{definition}[Local quadratic occupancy]
+      \label{def:local-occupancy}
+      Let $C_{\mathrm{occ}}(x)$ denote the occupied part of the local admissible sector over
+      $x$, and let $C_{\mathrm{max}}(x)$ denote a maximally saturated admissible vector, with
+      \[
+        \sigma_{\mathrm{max}}
+        :=\|C_{\mathrm{max}}(x)\|_{\Sym^{2}(V_{\rho})}^{2}
+        =c_{\chi}^{2}.
+      \]
+      The local occupancy field is
+      \[
+        \epsilon(x)
+        :=\frac{\|C_{\mathrm{occ}}(x)\|_{\Sym^{2}(V_{\rho})}^{2}}{\sigma_{\mathrm{max}}},
+        \qquad 0\leq\epsilon(x)\leq 1.
+      \]
+      Equivalently, in any admissible orthonormal frame of $\Sym^{2}(V_{\rho})$,
+      \[
+        \epsilon(x)
+        =\frac{\sum_{a=1}^{3}|c_{a}^{\mathrm{occ}}(x)|^{2}}
+        {\sum_{a=1}^{3}|c_{a}^{\mathrm{max}}(x)|^{2}}.
+      \]
+    \end{definition}
+
+    This expression is frame-independent because the norm is the $\SU(2)$-invariant
+    quadratic norm on $\Sym^{2}(V_{\rho})$.
+    The field $\epsilon(x)$ is not introduced as an independent scalar density.
+    It is the fraction of the local admissible fibre already occupied in the quadratic norm
+    that defines the Born--Infeld capacity.
+
+  \section{Local admissibility-weight reduction}
+    \label{sec:weight-reduction}
+
+    \begin{lemma}[Local admissibility-weight reduction]
+      \label{lem:local-admissibility-weight-reduction}
+      Let $A_{\tau}^{\infty}=2$ be the homogeneous temporal admissibility coefficient.
+      If a fraction $\epsilon(x)$ of the local $\Sym^{2}(V_{\rho})$ capacity is occupied,
+      then the temporal coefficient of the local effective admissibility operator satisfies
+      \[
+        A_{\tau}(x)
+        =A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr)
+        =2\bigl(1-\epsilon(x)\bigr).
+      \]
+    \end{lemma}
+
+    \begin{proof}
+      The effective operator $L_{\mathrm{eff}}$ is local at the level of its principal symbol.
+      At each point $x$, its temporal coefficient is the normalised trace of the admissibility
+      weight operator $\mathrm{Ad}$ over the fibre sector available over $x$~\cite{Beau2026w1}.
+      In the homogeneous case, the full image sector is available, and the fibre-averaging
+      argument of~\cite{Beau2026w1} gives $A_{\tau}^{\infty}=2$.
+
+      Locally, the occupied and free parts of the fibre decompose orthogonally in the
+      $\SU(2)$-invariant quadratic norm on $\Sym^{2}(V_{\rho})$:
+      \[
+        C_{\mathrm{max}}(x)=C_{\mathrm{occ}}(x)\oplus C_{\mathrm{free}}(x).
+      \]
+      Therefore $\|C_{\mathrm{free}}(x)\|^{2}=\|C_{\mathrm{max}}(x)\|^{2}-\|C_{\mathrm{occ}}(x)\|^{2}$,
+      and dividing by $\sigma_{\mathrm{max}}$ gives
+      \[
+        \frac{\|C_{\mathrm{free}}(x)\|^{2}}{\|C_{\mathrm{max}}(x)\|^{2}}=1-\epsilon(x).
+      \]
+
+      Since $\Sym^{2}(V_{\rho})$ is an irreducible $\SU(2)$-representation and the
+      admissibility weight $\mathrm{Ad}$ is $\SU(2)$-equivariant, Schur's lemma forces
+      $\mathrm{Ad}=\lambda\cdot\mathrm{Id}$ on this sector for some scalar $\lambda>0$.
+      Therefore the partial trace over any subspace $C\subseteq\Sym^{2}(V_{\rho})$ satisfies
+      \[
+        \tr_{C}(\mathrm{Ad})=\lambda\|C\|^{2}.
+      \]
+      Consequently,
+      \[
+        \frac{\tr_{C_{\mathrm{free}}(x)}(\mathrm{Ad})}{\tr_{C_{\mathrm{max}}(x)}(\mathrm{Ad})}
+        =\frac{\|C_{\mathrm{free}}(x)\|^{2}}{\|C_{\mathrm{max}}(x)\|^{2}}
+        =1-\epsilon(x).
+      \]
+      The local temporal coefficient is the normalised trace over $C_{\mathrm{free}}(x)$:
+      \[
+        A_{\tau}(x)
+        =A_{\tau}^{\infty}
+        \frac{\tr_{C_{\mathrm{free}}(x)}(\mathrm{Ad})}{\tr_{C_{\mathrm{max}}(x)}(\mathrm{Ad})}
+        =A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr).
+      \]
+      Using $A_{\tau}^{\infty}=2$ yields $A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr)$.
+    \end{proof}
+
+  \section{Principal-symbol identification}
+    \label{sec:principal-symbol}
+
+    The effective metric is reconstructed from the principal symbol of $L_{\mathrm{eff}}$~\cite{Beau2026q6b}.
+    For the temporal component, in the LCII normalisation~\cite{Beau2026lco2}, this gives
+    \[
+      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
+    \]
+    This identification follows from the principal-symbol formula of~\cite{Beau2026q6b},
+    applied locally, together with the flat-space normalisation $A_{\tau}^{\infty}=2$,
+    $g^{\tau\tau,\infty}=-\tfrac{1}{2}$ established in~\cite{Beau2026q11}.
+
+    This step is purely operator-theoretic.
+    It uses the local principal symbol of the admissibility operator and does not use the
+    Einstein equation, the spectral-entropy variation, or the field equations of
+    the Gravity paper~\cite{Beau2026q6b}.
+
+  \section{Spectral closure of the capacity--metric bridge}
+    \label{sec:spectral-closure}
+
+    \begin{theorem}[Spectral closure of the local capacity--metric bridge]
+      \label{thm:spectral-closure}
+      The local capacity radius and the metric radius coincide:
+      \[
+        R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x).
+      \]
+      Equivalently,
+      \[
+        \epsilon(x)=1+2g^{\tau\tau}(x).
+      \]
+    \end{theorem}
+
+    \begin{proof}
+      By Definition~\ref{def:local-occupancy}, $R(x)^{2}=1-\epsilon(x)$.
+      By Lemma~\ref{lem:local-admissibility-weight-reduction},
+      $A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr)$.
+      The local principal-symbol identification of Section~\ref{sec:principal-symbol} gives
+      $g^{\tau\tau}(x)=-A_{\tau}(x)/4$.
+      Hence
+      \[
+        -2g^{\tau\tau}(x)=\frac{A_{\tau}(x)}{2}=1-\epsilon(x).
+      \]
+      Therefore $R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x)$, and rearranging gives the
+      equivalent form.
+    \end{proof}
+
+    \begin{corollary}[Upgrade of Remark~3.2 of \cite{Beau2026lco2}]
+      \label{cor:lcii-upgrade}
+      The equivalence between the capacity and metric definitions of $R(x)$,
+      postulated in Remark~3.2 of~\cite{Beau2026lco2}, is not an independent postulate.
+      It follows from local admissibility-weight reduction on the quadratic fibre sector
+      $\Sym^{2}(V_{\rho})$.
+      The chain
+      \[
+        \epsilon(x)
+        \longmapsto A_{\tau}(x)
+        \longmapsto g^{\tau\tau}(x)
+      \]
+      is closed spectrally, without importing the Einstein equation.
+    \end{corollary}
+
+    \begin{remark}[Role of the quadratic occupancy]
+      \label{rem:role-quadratic-occupancy}
+      The proof depends essentially on $\epsilon(x)$ being a quadratic occupancy in
+      $\Sym^{2}(V_{\rho})$.
+      If $\epsilon(x)$ were only an additive scalar density, the Schur step would not apply,
+      the orthogonal decomposition
+      $C_{\mathrm{max}}(x)=C_{\mathrm{occ}}(x)\oplus C_{\mathrm{free}}(x)$
+      would not imply the exact factor $1-\epsilon(x)$ in $A_{\tau}(x)$, and the bridge
+      would remain open.
+      The identity $\epsilon(x)=1+2g^{\tau\tau}(x)$ is therefore a spectral admissibility
+      identity, not a phenomenological identification between matter density and metric
+      curvature.
+    \end{remark}
+
+  \section{Discussion}
+    \label{sec:discussion}
+
+    The result shows that $\epsilon(x)$ and $g^{\tau\tau}(x)$ are not independent fields:
+    they are two readings of the same local admissibility datum.
+    The projective capacity available at $x$ for further temporal transitions is
+    $1-\epsilon(x)$, and this is precisely the quantity that the effective metric encodes
+    in its temporal component $g^{\tau\tau}(x)=-\tfrac{1}{2}(1-\epsilon(x))$.
+
+    Gravitational time dilation then takes the following form in the capacity language.
+    A massive configuration at $x$ occupies a fraction $\epsilon(x)>0$ of the local BI
+    budget; the residual temporal capacity $R(x)=\sqrt{1-\epsilon(x)}<1$ slows local
+    clocks relative to the vacuum.
+    This is not imported from the Einstein equation.
+    It is a consequence of the reduction of the available admissible fibre sector.
+
+    The Schwarzschild case provides a consistency check via~\cite{Beau2026lco2},
+    Corollary~6.1: in the weak-field regime,
+    $R(x)\approx 1+\Phi_{N}(x)/c^{2}$, so $\epsilon(x)\approx -2\Phi_{N}(x)/c^{2}$, with
+    $\Phi_{N}<0$ near a mass source.
+    The capacity budget is slightly more occupied near a massive body, reducing the temporal
+    residual, consistently with the standard gravitational redshift.
+
+  \section{Conclusion}
+    \label{sec:conclusion}
+
+    We have closed LC-O2-O1.
+    The local capacity radius $R(x)^{2}=1-\epsilon(x)$ and the metric radius
+    $R(x)^{2}=-2g^{\tau\tau}(x)$ are the same quantity, once the occupancy field is
+    defined as a quadratic occupancy in $\Sym^{2}(V_{\rho})$.
+
+    The proof proceeds through two steps.
+    First, the local temporal coefficient of the admissibility operator is reduced by the
+    free quadratic capacity fraction:
+    \[
+      A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr).
+    \]
+    This follows from the $\SU(2)$-invariance of the admissibility weight (Schur's lemma)
+    and the orthogonality of the occupied/free decomposition.
+    Second, the principal-symbol identification gives
+    \[
+      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
+    \]
+    Combining these two identities yields $R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x)$.
+    The bridge is closed spectrally, without the Einstein equation.
+    The open bridge of Remark~3.2 of~\cite{Beau2026lco2} is hereby upgraded to a theorem.
+
+    \newpage
+    \bibliographystyle{plain}
+    \bibliography{cosmochrony-bibliography}
+
+\end{document}
