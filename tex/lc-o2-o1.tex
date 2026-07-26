@@ -2,14 +2,27 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{doi}
 \usepackage{hyperref}
 
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\hypersetup{
+  hidelinks,
+  pdftitle={Failure of the Scalar Free-Fraction Closure of the Local Capacity-Metric Bridge},
+  pdfauthor={Jerome Beau},
+  pdfsubject={Negative result on the LC-O2-O1 bridge of the Lorentz-Capacity sub-programme},
+  pdfkeywords={capacity radius; spectral occupancy; no-go; co-metric inversion; trace reduction;
+    effective Lorentzian geometry; Cosmochrony}
+}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \theoremstyle{definition}
@@ -19,7 +32,8 @@
 \newcommand{\Sym}{\mathrm{Sym}}
 \newcommand{\SU}{\mathrm{SU}}
 
-\title{Local Spectral Closure of the Capacity--Metric Bridge\\[4pt]
+\title{Failure of the Scalar Free-Fraction Closure\\of the Local Capacity--Metric Bridge\\[4pt]
+\normalsize\itshape Trace Reduction, Co-Metric Inversion, and the Remaining Operator Problem\\[4pt]
 \normalsize\itshape LC-O2-O1 of the Lorentz--Capacity Sub-Programme}
 \author{J\'er\^ome Beau\\[2pt]
 \small Independent Researcher\\
@@ -31,40 +45,32 @@
   \maketitle
 
   \begin{abstract}
-    We close the local bridge between the capacity radius and the temporal co-metric
-    component in the Lorentz-capacity formulation of the Cosmochrony programme.
-    The local theory introduces an occupancy field $\epsilon(x)$ through the residual
-    Born--Infeld capacity radius $R(x)^{2}=1-\epsilon(x)$, while the metric formulation
-    introduces the same radius through $R(x)^{2}=-2g^{\tau\tau}(x)$.
-    Their equivalence was previously stated as an open analytic bridge in~\cite{Beau2026lco2}.
-    We prove that the identity
-    \[
-      \epsilon(x)=1+2g^{\tau\tau}(x)
-    \]
-    follows directly from local admissibility data.
-    The key input is that $\epsilon(x)$ is a quadratic occupancy in the rank-three sector
-    $\Sym^{2}(V_{\rho})$, normalised by the maximal Born--Infeld capacity
-    $\sigma_{\mathrm{max}}=c_{\mathrm{BI}}^{2}$.
-    A local version of the admissibility-weight argument of~\cite{Beau2026w1} then gives
-    \[
-      A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr).
-    \]
-    Using the principal-symbol identification of the effective operator~\cite{Beau2026q6b,Beau2026q11},
-    together with the flat-space normalisation $A_{\tau}^{\infty}=2$,
-    $g^{\tau\tau,\infty}=-\tfrac{1}{2}$, yields
-    \[
-      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
-    \]
-    Therefore $R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x)$.
-    No use is made of the Einstein equation.
-    The bridge is closed spectrally from the local admissibility form alone.
+    The Lorentz--capacity formulation carries an open bridge, LC-O2-O1: the equivalence between the
+    capacity radius $R^{2}=1-\epsilon$ and the metric radius defined by the temporal lapse.
+    A proposed closure reduces the local temporal coefficient to the free capacity fraction,
+    $A_{\tau}=A_{\tau}^{\infty}(1-\epsilon)$.
+    This note shows that the proposal fails.
+    Assuming a diagonal temporal block, this law together with the principal-symbol identification
+    $g^{\tau\tau}=-A_{\tau}$ makes the metric radius increase with occupancy,
+    $R_{\mathrm{metric}}^{2}=1/(1-\epsilon)$, so the two definitions agree only at $\epsilon=0$; no
+    constant renormalisation repairs this.
+    What survives is the co-metric statement $g^{\tau\tau}/g^{\tau\tau}_{\infty}=1-\epsilon$, the
+    metric inverse of the lapse, which does not govern proper-time dilation.
+    Two further defects are independent of the inversion: the partial-trace form of the coefficient is
+    a fresh postulate, and the occupancy is defined by the norm of a vector while the trace step
+    treats it as a subspace.
+    The result is narrow --- a reciprocal scalar law would close the bridge algebraically --- so what
+    fails is the free-fraction law, not scalar closure in general.
+    LC-O2-O1 is reopened.
+    Interpretively, and as no part of the formal result, capacity appears to constrain the co-metric
+    more directly than the lapse.
   \end{abstract}
 
   \medskip
+  {\sloppy
   \noindent\textbf{Keywords.}
-  local capacity radius; spectral occupancy; admissibility-weight reduction;
-  temporal co-metric; Born--Infeld capacity; effective Lorentzian geometry;
-  gravitational time dilation; Cosmochrony.
+  local capacity radius; spectral occupancy; negative result; co-metric inversion;
+  trace reduction; effective Lorentzian geometry; Cosmochrony.\par}
 
   \newpage
   \tableofcontents
@@ -73,75 +79,71 @@
   \section{Introduction}
     \label{sec:introduction}
 
-    The Lorentz-capacity formulation~\cite{Beau2026lco2} introduces a local occupancy
-    field $\epsilon(x)$ measuring how much of the projective capacity at $x$ is already
-    locked by admissible spectral structure.
-    On the capacity side, the residual radius is defined by
-    \[
-      R(x)^{2} := 1-\epsilon(x).
-    \]
-    On the metric side, the same quantity is defined by the temporal co-metric component,
-    \[
-      R(x)^{2} := -2g^{\tau\tau}(x).
-    \]
-    The open problem LC-O2-O1 of~\cite{Beau2026lco2} (Remark~3.2 and Section~7.3) is to prove
-    \[
-      1-\epsilon(x)=-2g^{\tau\tau}(x)
-    \]
-    from admissibility data alone, without importing the Einstein equation from the
-    spectral gravity branch.
+    The Lorentz-capacity formulation~\cite{Beau2026lco2} introduces a local occupancy field
+    $\epsilon(x)$ measuring how much of the projective capacity at $x$ is already locked by admissible
+    spectral structure, and defines the residual capacity radius by
+    \begin{equation}\label{eq:Rcap}
+      R_{\mathrm{capacity}}(x)^{2} := 1-\epsilon(x).
+    \end{equation}
+    Independently, it defines a metric radius from the temporal lapse, normalised to its flat-space
+    value,
+    \begin{equation}\label{eq:Rmet}
+      R_{\mathrm{metric}}(x)^{2}
+      := \frac{g_{\tau\tau}(x)}{g_{\tau\tau}^{\infty}},
+      \qquad
+      g_{\tau\tau}^{\infty}=-\tfrac12 ,
+    \end{equation}
+    the flat-space value following from the Q11 normalisation $g^{\mu\nu}=2\eta^{\mu\nu}$.
+    The open problem LC-O2-O1 (Remark~3.2 and Section~7.3 of~\cite{Beau2026lco2}) is to prove that
+    these two radii coincide, from admissibility data alone, without importing the Einstein equation
+    from the spectral gravity branch.
 
-    The natural object controlling this bridge is the local temporal coefficient
-    $A_{\tau}(x)$ of the effective admissibility operator $L_{\mathrm{eff}}$.
-    In the homogeneous flat limit, this coefficient is fixed by~\cite{Beau2026q11}:
-    \[
-      A_{\tau}^{\infty}=2.
-    \]
-    When a fraction $\epsilon(x)$ of the local admissible fibre is already occupied,
-    the coefficient is reduced by the free quadratic capacity fraction:
-    \[
-      A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr).
-    \]
-    This is the local counterpart of the admissibility-weight convergence argument
-    of~\cite{Beau2026w1}.
-    The reduction is exact only if $\epsilon(x)$ is defined as a quadratic occupancy
-    in the rank-three sector $\Sym^{2}(V_{\rho})$.
-    It does not hold for an arbitrary additive scalar density.
+    A proposed closure uses the local weight reduction
+    $A_{\tau}(x)=A_{\tau}^{\infty}(1-\epsilon(x))$ --- here called the \emph{free-fraction law} ---
+    together with a principal-symbol identification $g^{\tau\tau}(x)=-A_{\tau}(x)/4$.
+    The argument does not establish LC-O2-O1.
 
-    Once this local weight reduction is established, the metric bridge follows from the
-    principal-symbol reconstruction of $L_{\mathrm{eff}}$:
-    \[
-      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
-    \]
-    The factor $\tfrac{1}{4}$ is fixed by the LCII normalisation $R^{2}=-2g^{\tau\tau}$,
-    together with the flat-space values $A_{\tau}^{\infty}=2$ and
-    $g^{\tau\tau,\infty}=-\tfrac{1}{2}$.
-    This identification belongs to the operator-symbol reconstruction of the effective
-    metric~\cite{Beau2026q6b,Beau2026q11} and does not use the Einstein equation.
+    The factor $\tfrac14$ was not read off the principal symbol of~\cite{Beau2026q11}; it was fixed so
+    that the two definitions would agree, using the flat-space assignment
+    $g^{\tau\tau,\infty}=-\tfrac12$.
+    That assignment is the value of the covariant component $g_{\tau\tau}^{\infty}$, not of the
+    contravariant $g^{\tau\tau,\infty}$, which Q11 fixes at $-A_{\tau}^{\infty}=-2$.
+    With the correct identification $g^{\tau\tau}=-A_{\tau}$, the free-fraction law delivers the
+    reciprocal of~\eqref{eq:Rcap} rather than~\eqref{eq:Rcap}.
 
-    Section~\ref{sec:quadratic-occupancy} defines the quadratic local occupancy precisely.
-    Section~\ref{sec:weight-reduction} proves the local weight reduction (Lemma).
-    Section~\ref{sec:principal-symbol} records the principal-symbol identification.
-    Section~\ref{sec:spectral-closure} states and proves the main result (Theorem and Corollary).
-    Section~\ref{sec:discussion} discusses the role of the quadratic definition and the
-    scope of the result.
+    \paragraph{Scope of the negative result.}
+      The result proved here is narrow by design.
+      It concerns the \emph{free-fraction} law specifically, not scalar closure in general: a
+      reciprocal scalar law $A_{\tau}(\epsilon)=A_{\tau}^{\infty}/(1-\epsilon)$ would close the bridge
+      algebraically.
+      No such law is derived here, and none is available in the corpus; but its mere existence means
+      that what fails is a particular reduction, not the possibility of a scalar one.
+      We likewise do not claim that an operator-valued datum is \emph{necessary}, nor that a
+      covariantly transforming family of local subspaces is impossible, nor that the spatial
+      components must be derived jointly in order to close the temporal bridge alone.
+      Those remain open questions, listed in Section~\ref{sec:remaining}.
 
-  \section{Quadratic local occupancy}
-    \label{sec:quadratic-occupancy}
+    Section~\ref{sec:nogo} states the inversion as a no-go under an explicit diagonality hypothesis.
+    Section~\ref{sec:renorm} shows that no available renormalisation repairs it, and isolates the
+    co-metric statement that does survive.
+    Section~\ref{sec:provenance} shows that the trace reduction rests on an unsupported attribution and
+    on a type mismatch.
+    Section~\ref{sec:covariance} states what is actually missing on the equivariance side.
+    Sections~\ref{sec:status} and~\ref{sec:remaining} record the status and the reopened content.
 
-    Let $V_{\rho}$ be the Weil module of $\mathrm{Heis}_{3}(\mathbb{Z}/q\mathbb{Z})$ forced
-    by admissibility~\cite{Beau2026q6b}.
-    The local rank-three effective sector is identified as
-    \[
-      H_{\mathrm{eff}}(x)\simeq \Sym^{2}(V_{\rho}),
-    \]
-    equipped with its $\SU(2)$-invariant quadratic norm.
-    The local Born--Infeld capacity is measured in this norm.
+  \section{The scalar free-fraction ansatz}
+    \label{sec:occupancy}
+
+    We retain the definitions of the occupancy field; what fails is the inference drawn from them.
+
+    Following Q11~\cite{Beau2026q11}, let the local rank-three effective sector be
+    $H_{\mathrm{eff}}(x)\simeq \Sym^{2}(V_{\rho})$, equipped with its $\SU(2)$-invariant quadratic
+    norm.
 
     \begin{definition}[Local quadratic occupancy]
       \label{def:local-occupancy}
-      Let $C_{\mathrm{occ}}(x)$ denote the occupied part of the local admissible sector over
-      $x$, and let $C_{\mathrm{max}}(x)$ denote a maximally saturated admissible vector, with
+      Let $C_{\mathrm{occ}}(x)$ denote the occupied part of the local admissible sector over $x$, and
+      let $C_{\mathrm{max}}(x)$ denote a maximally saturated admissible vector, with
       \[
         \sigma_{\mathrm{max}}
         :=\|C_{\mathrm{max}}(x)\|_{\Sym^{2}(V_{\rho})}^{2}
@@ -151,201 +153,337 @@
       \[
         \epsilon(x)
         :=\frac{\|C_{\mathrm{occ}}(x)\|_{\Sym^{2}(V_{\rho})}^{2}}{\sigma_{\mathrm{max}}},
-        \qquad 0\leq\epsilon(x)\leq 1.
-      \]
-      Equivalently, in any admissible orthonormal frame of $\Sym^{2}(V_{\rho})$,
-      \[
-        \epsilon(x)
-        =\frac{\sum_{a=1}^{3}|c_{a}^{\mathrm{occ}}(x)|^{2}}
-        {\sum_{a=1}^{3}|c_{a}^{\mathrm{max}}(x)|^{2}}.
+        \qquad 0\leq\epsilon(x)< 1 .
       \]
     \end{definition}
 
-    This expression is frame-independent because the norm is the $\SU(2)$-invariant
-    quadratic norm on $\Sym^{2}(V_{\rho})$.
-    The field $\epsilon(x)$ is not introduced as an independent scalar density.
-    It is the fraction of the local admissible fibre already occupied in the quadratic norm
-    that defines the Born--Infeld capacity.
+    \begin{definition}[Free-fraction law]
+      \label{def:ansatz}
+      The \emph{free-fraction law} is the hypothesis
+      \begin{equation}\label{eq:ansatz}
+        A_{\tau}(x)=A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr),
+        \qquad A_{\tau}^{\infty}=2 .
+      \end{equation}
+    \end{definition}
 
-  \section{Local admissibility-weight reduction}
-    \label{sec:weight-reduction}
+    \begin{definition}[Diagonal temporal block]
+      \label{def:diagonal}
+      We say the temporal block is \emph{diagonal} at $x$ if $g^{\tau i}(x)=0$ for the spatial indices
+      $i$.
+      In that case, and only in that case, the temporal components satisfy
+      $g_{\tau\tau}(x)=\bigl(g^{\tau\tau}(x)\bigr)^{-1}$.
+    \end{definition}
 
-    \begin{lemma}[Local admissibility-weight reduction]
-      \label{lem:local-admissibility-weight-reduction}
-      Let $A_{\tau}^{\infty}=2$ be the homogeneous temporal admissibility coefficient.
-      If a fraction $\epsilon(x)$ of the local $\Sym^{2}(V_{\rho})$ capacity is occupied,
-      then the temporal coefficient of the local effective admissibility operator satisfies
+    Diagonality holds in the homogeneous normalisation $g^{\mu\nu}=2\eta^{\mu\nu}$ of~\cite{Beau2026q11}
+    and in the static configurations considered in~\cite{Beau2026lco2}.
+    It is stated explicitly because the inversion below uses it; without it the relation between
+    $g^{\tau\tau}$ and $g_{\tau\tau}$ involves the full inverse of the metric and no elementary
+    reciprocal holds.
+
+  \section{The no-go for the free-fraction law}
+    \label{sec:nogo}
+
+    Q11~\cite{Beau2026q11} establishes the effective co-metric in the form
+    \begin{equation}\label{eq:q11}
+      g^{\mu\nu}=\mathrm{diag}(-A_{\tau},\,2,\,2,\,2),
+      \qquad
+      A_{\tau}=2=\mathcal{C}_{\mathfrak{su}(2)}\big|_{\Sym^{2}(V_{\rho})},
+    \end{equation}
+    so $g^{\tau\tau}=-A_{\tau}$ with $g^{\tau\tau,\infty}=-2$ and hence
+    $g_{\tau\tau}^{\infty}=-\tfrac12$.
+
+    \begin{theorem}[Failure of the free-fraction closure]
+      \label{thm:nogo}
+      Assume the free-fraction law~\eqref{eq:ansatz}, the Q11 identification
+      $g^{\tau\tau}=-A_{\tau}$, and a diagonal temporal block
+      (Definition~\ref{def:diagonal}).
+      Then
       \[
-        A_{\tau}(x)
-        =A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr)
-        =2\bigl(1-\epsilon(x)\bigr).
+        R_{\mathrm{metric}}(x)^{2}=\frac{1}{1-\epsilon(x)} ,
       \]
-    \end{lemma}
-
-    \begin{proof}
-      The effective operator $L_{\mathrm{eff}}$ is local at the level of its principal symbol.
-      At each point $x$, its temporal coefficient is the normalised trace of the admissibility
-      weight operator $\mathrm{Ad}$ over the fibre sector available over $x$~\cite{Beau2026w1}.
-      In the homogeneous case, the full image sector is available, and the fibre-averaging
-      argument of~\cite{Beau2026w1} gives $A_{\tau}^{\infty}=2$.
-
-      Locally, the occupied and free parts of the fibre decompose orthogonally in the
-      $\SU(2)$-invariant quadratic norm on $\Sym^{2}(V_{\rho})$:
+      and therefore
       \[
-        C_{\mathrm{max}}(x)=C_{\mathrm{occ}}(x)\oplus C_{\mathrm{free}}(x).
+        R_{\mathrm{metric}}(x)^{2}=R_{\mathrm{capacity}}(x)^{2}
+        \iff (1-\epsilon(x))^{2}=1
+        \iff \epsilon(x)=0
       \]
-      Therefore $\|C_{\mathrm{free}}(x)\|^{2}=\|C_{\mathrm{max}}(x)\|^{2}-\|C_{\mathrm{occ}}(x)\|^{2}$,
-      and dividing by $\sigma_{\mathrm{max}}$ gives
-      \[
-        \frac{\|C_{\mathrm{free}}(x)\|^{2}}{\|C_{\mathrm{max}}(x)\|^{2}}=1-\epsilon(x).
-      \]
-
-      Since $\Sym^{2}(V_{\rho})$ is an irreducible $\SU(2)$-representation and the
-      admissibility weight $\mathrm{Ad}$ is $\SU(2)$-equivariant, Schur's lemma forces
-      $\mathrm{Ad}=\lambda\cdot\mathrm{Id}$ on this sector for some scalar $\lambda>0$.
-      Therefore the partial trace over any subspace $C\subseteq\Sym^{2}(V_{\rho})$ satisfies
-      \[
-        \tr_{C}(\mathrm{Ad})=\lambda\|C\|^{2}.
-      \]
-      Consequently,
-      \[
-        \frac{\tr_{C_{\mathrm{free}}(x)}(\mathrm{Ad})}{\tr_{C_{\mathrm{max}}(x)}(\mathrm{Ad})}
-        =\frac{\|C_{\mathrm{free}}(x)\|^{2}}{\|C_{\mathrm{max}}(x)\|^{2}}
-        =1-\epsilon(x).
-      \]
-      The local temporal coefficient is the normalised trace over $C_{\mathrm{free}}(x)$:
-      \[
-        A_{\tau}(x)
-        =A_{\tau}^{\infty}
-        \frac{\tr_{C_{\mathrm{free}}(x)}(\mathrm{Ad})}{\tr_{C_{\mathrm{max}}(x)}(\mathrm{Ad})}
-        =A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr).
-      \]
-      Using $A_{\tau}^{\infty}=2$ yields $A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr)$.
-    \end{proof}
-
-  \section{Principal-symbol identification}
-    \label{sec:principal-symbol}
-
-    The effective metric is reconstructed from the principal symbol of $L_{\mathrm{eff}}$~\cite{Beau2026q6b}.
-    For the temporal component, in the LCII normalisation~\cite{Beau2026lco2}, this gives
-    \[
-      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
-    \]
-    This identification follows from the principal-symbol formula of~\cite{Beau2026q6b},
-    applied locally, together with the flat-space normalisation $A_{\tau}^{\infty}=2$,
-    $g^{\tau\tau,\infty}=-\tfrac{1}{2}$ established in~\cite{Beau2026q11}.
-
-    This step is purely operator-theoretic.
-    It uses the local principal symbol of the admissibility operator and does not use the
-    Einstein equation, the spectral-entropy variation, or the field equations of
-    the Gravity paper~\cite{Beau2026q6b}.
-
-  \section{Spectral closure of the capacity--metric bridge}
-    \label{sec:spectral-closure}
-
-    \begin{theorem}[Spectral closure of the local capacity--metric bridge]
-      \label{thm:spectral-closure}
-      The local capacity radius and the metric radius coincide:
-      \[
-        R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x).
-      \]
-      Equivalently,
-      \[
-        \epsilon(x)=1+2g^{\tau\tau}(x).
-      \]
+      in the physical range $0\le\epsilon(x)<1$.
+      The free-fraction law thus closes the bridge on the homogeneous vacuum only.
     \end{theorem}
 
     \begin{proof}
-      By Definition~\ref{def:local-occupancy}, $R(x)^{2}=1-\epsilon(x)$.
-      By Lemma~\ref{lem:local-admissibility-weight-reduction},
-      $A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr)$.
-      The local principal-symbol identification of Section~\ref{sec:principal-symbol} gives
-      $g^{\tau\tau}(x)=-A_{\tau}(x)/4$.
-      Hence
-      \[
-        -2g^{\tau\tau}(x)=\frac{A_{\tau}(x)}{2}=1-\epsilon(x).
-      \]
-      Therefore $R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x)$, and rearranging gives the
-      equivalent form.
+      By~\eqref{eq:ansatz} and~\eqref{eq:q11},
+      $g^{\tau\tau}(x)=-A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr)=-2\bigl(1-\epsilon(x)\bigr)$.
+      Diagonality gives
+      $g_{\tau\tau}(x)=\bigl(g^{\tau\tau}(x)\bigr)^{-1}=-\bigl[2(1-\epsilon(x))\bigr]^{-1}$.
+      Dividing by $g_{\tau\tau}^{\infty}=-\tfrac12$ yields
+      $R_{\mathrm{metric}}(x)^{2}=1/(1-\epsilon(x))$.
+      Equating with $1-\epsilon(x)$ gives $(1-\epsilon(x))^{2}=1$, whose only root with
+      $0\le\epsilon<1$ is $\epsilon=0$.
     \end{proof}
 
-    \begin{corollary}[Upgrade of Remark~3.2 of \cite{Beau2026lco2}]
-      \label{cor:lcii-upgrade}
-      The equivalence between the capacity and metric definitions of $R(x)$,
-      postulated in Remark~3.2 of~\cite{Beau2026lco2}, is not an independent postulate.
-      It follows from local admissibility-weight reduction on the quadratic fibre sector
-      $\Sym^{2}(V_{\rho})$.
-      The chain
-      \[
-        \epsilon(x)
-        \longmapsto A_{\tau}(x)
-        \longmapsto g^{\tau\tau}(x)
-      \]
-      is closed spectrally, without importing the Einstein equation.
-    \end{corollary}
-
-    \begin{remark}[Role of the quadratic occupancy]
-      \label{rem:role-quadratic-occupancy}
-      The proof depends essentially on $\epsilon(x)$ being a quadratic occupancy in
-      $\Sym^{2}(V_{\rho})$.
-      If $\epsilon(x)$ were only an additive scalar density, the Schur step would not apply,
-      the orthogonal decomposition
-      $C_{\mathrm{max}}(x)=C_{\mathrm{occ}}(x)\oplus C_{\mathrm{free}}(x)$
-      would not imply the exact factor $1-\epsilon(x)$ in $A_{\tau}(x)$, and the bridge
-      would remain open.
-      The identity $\epsilon(x)=1+2g^{\tau\tau}(x)$ is therefore a spectral admissibility
-      identity, not a phenomenological identification between matter density and metric
-      curvature.
+    \begin{remark}[A reciprocal law would close it]
+      \label{rem:reciprocal}
+      The obstruction is specific to the free-fraction form.
+      Under the same hypotheses, the reciprocal scalar law
+      $A_{\tau}(\epsilon)=A_{\tau}^{\infty}/(1-\epsilon)$ gives
+      $g_{\tau\tau}/g_{\tau\tau}^{\infty}=1-\epsilon$, closing the bridge algebraically.
+      We do not derive such a law, and none is available in the corpus; adopting it merely because it
+      produces the required identity would select the mechanism from the desired conclusion.
+      Its existence nevertheless bounds the scope of Theorem~\ref{thm:nogo}: what fails is the
+      free-fraction law, not scalar closure as such.
     \end{remark}
 
-  \section{Discussion}
-    \label{sec:discussion}
+    \begin{remark}[Metric--co-metric mismatch]
+      \label{rem:where}
+      The proposed derivation writes the metric definition contravariantly, as
+      $R^{2}=-2g^{\tau\tau}$, whereas
+      \cite{Beau2026lco2} defines it covariantly, as
+      $R^{2}=g_{\tau\tau}/g_{\tau\tau}^{\infty}=-2g_{\tau\tau}$.
+      It then fixed $g^{\tau\tau}=-A_{\tau}/4$ by imposing $g^{\tau\tau,\infty}=-\tfrac12$, which is
+      the covariant reference value.
+      The factor $\tfrac14$ reconciled the two definitions numerically at the cost of conflating the
+      metric with the co-metric.
+    \end{remark}
 
-    The result shows that $\epsilon(x)$ and $g^{\tau\tau}(x)$ are not independent fields:
-    they are two readings of the same local admissibility datum.
-    The projective capacity available at $x$ for further temporal transitions is
-    $1-\epsilon(x)$, and this is precisely the quantity that the effective metric encodes
-    in its temporal component $g^{\tau\tau}(x)=-\tfrac{1}{2}(1-\epsilon(x))$.
+    \begin{remark}[Direction of the physical discrepancy]
+      \label{rem:physical}
+      The discrepancy is one of direction, not of convention.
+      Proper time obeys $d\tau_{\mathrm{proper}}=\sqrt{|g_{\tau\tau}|}\,dt$, so a coefficient
+      $A_{\tau}$ decreasing with occupancy makes $|g_{\tau\tau}|$ increase, and local clocks run
+      faster near an occupied region.
+      A Schwarzschild exterior requires the opposite: there $|g_{\tau\tau}|$ decreases with
+      $r_{s}/r$, so $A_{\tau}$ must increase with occupancy.
+    \end{remark}
 
-    Gravitational time dilation then takes the following form in the capacity language.
-    A massive configuration at $x$ occupies a fraction $\epsilon(x)>0$ of the local BI
-    budget; the residual temporal capacity $R(x)=\sqrt{1-\epsilon(x)}<1$ slows local
-    clocks relative to the vacuum.
-    This is not imported from the Einstein equation.
-    It is a consequence of the reduction of the available admissible fibre sector.
+  \section{No available renormalisation repairs the inversion}
+    \label{sec:renorm}
 
-    The Schwarzschild case provides a consistency check via~\cite{Beau2026lco2},
-    Corollary~6.1: in the weak-field regime,
-    $R(x)\approx 1+\Phi_{N}(x)/c^{2}$, so $\epsilon(x)\approx -2\Phi_{N}(x)/c^{2}$, with
-    $\Phi_{N}<0$ near a mass source.
-    The capacity budget is slightly more occupied near a massive body, reducing the temporal
-    residual, consistently with the standard gravitational redshift.
+    \begin{proposition}[Constant renormalisation is inert]
+      \label{prop:constant-renorm}
+      Let $\widetilde g^{\mu\nu}=\kappa\,g^{\mu\nu}$ with $\kappa>0$ constant.
+      Then
+      \[
+        \frac{\widetilde g^{\tau\tau}(x)}{\widetilde g^{\tau\tau}_{\infty}}
+        =\frac{g^{\tau\tau}(x)}{g^{\tau\tau}_{\infty}},
+        \qquad
+        \frac{\widetilde g_{\tau\tau}(x)}{\widetilde g_{\tau\tau}^{\infty}}
+        =\frac{g_{\tau\tau}(x)}{g_{\tau\tau}^{\infty}} .
+      \]
+      In particular $\kappa=\tfrac14$ reproduces the flat-space value
+      $\widetilde g^{\tau\tau}_{\infty}=-\tfrac12$ used in the proposed derivation while leaving
+      Theorem~\ref{thm:nogo} intact.
+    \end{proposition}
+
+    \begin{proof}
+      Numerator and denominator scale by $\kappa$ in the contravariant ratio, and by $\kappa^{-1}$ in
+      the covariant ratio since $\widetilde g_{\tau\tau}=\kappa^{-1}g_{\tau\tau}$.
+      The factor cancels in each case.
+    \end{proof}
+
+    \begin{remark}[A local conformal factor would beg the question]
+      \label{rem:local-renorm}
+      A position-dependent factor $\Omega^{2}(x)$ could force agreement, but only for
+      $\Omega^{2}(x)\propto\bigl(1-\epsilon(x)\bigr)^{-2}$, a law read off the desired conclusion.
+      It would also rescale the spatial components, and it appears in no source paper.
+    \end{remark}
+
+    \begin{remark}[No densitised co-metric is defined]
+      \label{rem:densitised}
+      Q5b~\cite{Beau2026q5b} identifies the principal symbol as
+      $\sigma_{2}(L_{\mathrm{eff}})(p,k)=g^{\mu\nu}(p)\,k_{\mu}k_{\nu}$, leaving a global scale
+      freedom, which Proposition~\ref{prop:constant-renorm} shows to be inert.
+      No variable measure or dualisation supplying the missing factor is defined in the corpus.
+    \end{remark}
+
+    \begin{proposition}[What the free-fraction law does support]
+      \label{prop:co-ansatz}
+      Under~\eqref{eq:ansatz} and $g^{\tau\tau}=-A_{\tau}$,
+      \[
+        R_{\mathrm{co}}(x)^{2}
+        :=\frac{g^{\tau\tau}(x)}{g^{\tau\tau}_{\infty}}
+        =1-\epsilon(x),
+      \]
+      exactly.
+      With a diagonal temporal block, $R_{\mathrm{co}}^{2}=1/R_{\mathrm{metric}}^{2}$, so
+      $R_{\mathrm{co}}$ is the metric inverse of the capacity lapse and does not govern proper-time
+      dilation.
+    \end{proposition}
+
+    \begin{proof}
+      The first identity is immediate.
+      The second follows from $g_{\tau\tau}=(g^{\tau\tau})^{-1}$ under
+      Definition~\ref{def:diagonal}.
+    \end{proof}
+
+    The two statements to distinguish are therefore
+    \begin{align*}
+      \frac{g^{\tau\tau}}{g^{\tau\tau}_{\infty}}&=1-\epsilon
+        &&\text{(holds under the free-fraction law)},\\[2pt]
+      \frac{g_{\tau\tau}}{g_{\tau\tau}^{\infty}}&=1-\epsilon
+        &&\text{(the open bridge).}
+    \end{align*}
+
+  \section{Provenance and typing of the trace reduction}
+    \label{sec:provenance}
+
+    \begin{proposition}[The trace form is a fresh postulate]
+      \label{prop:provenance}
+      Neither~\cite{Beau2026w1} nor~\cite{Beau2026q11} establishes that the local temporal coefficient
+      of $L_{\mathrm{eff}}$ is a partial trace over an available fibre sector.
+    \end{proposition}
+
+    \begin{proof}
+      W1~\cite{Beau2026w1} defines the admissibility weights as cumulative fingerprint capacities,
+      $a_{q}(s)=\sum_{n\le n^{*}}\sigma_{c(s)}(n)$, and establishes their stabilisation as weights of a
+      filtered Dirichlet form.
+      A Dirichlet weight is a coefficient multiplying squared increments, not a partial trace, and W1
+      states no dependence on any occupancy field.
+      Q11~\cite{Beau2026q11} determines $A_{\tau}$ as a Casimir eigenvalue on the irreducible module.
+      A Casimir eigenvalue is not a normalised trace over a variable subspace.
+      Neither source therefore supplies the asserted form, which is an independent hypothesis.
+    \end{proof}
+
+    \begin{proposition}[Type mismatch: vector versus subspace]
+      \label{prop:type}
+      Definition~\ref{def:local-occupancy} measures occupancy by the norms of \emph{vectors}
+      $C_{\mathrm{occ}}(x),C_{\mathrm{max}}(x)\in\Sym^{2}(V_{\rho})$, whereas the partial-trace step of
+      the partial-trace construction treats them as \emph{subspaces}.
+      For a subspace $C$ and a weight acting as $\lambda\cdot\mathrm{Id}$,
+      \[
+        \tr_{C}(\lambda\,\mathrm{Id})=\lambda\dim C ,
+      \]
+      so a ratio of such traces is quantised in $\{0,\tfrac13,\tfrac23,1\}$, since
+      $\dim\Sym^{2}(V_{\rho})=3$, while $\epsilon(x)$ ranges continuously over $[0,1)$.
+      The two coincide at finitely many points only.
+    \end{proposition}
+
+    \begin{proof}
+      The trace of a scalar operator over a subspace $C$ is $\lambda\dim C$ by definition of the trace
+      on $C$; the stated range follows.
+    \end{proof}
+
+    \begin{remark}[What a corrected statement would require]
+      \label{rem:type-fix}
+      To give a norm-valued occupancy a meaning at the level of traces, one must introduce a further
+      object --- an occupation operator, a density matrix, or a weighted projector --- whose trace
+      reproduces the ratio of Definition~\ref{def:local-occupancy}.
+      No such object is defined in the construction or in the cited sources.
+      This defect is independent of Theorem~\ref{thm:nogo}: it would persist even if the monotonicity
+      were correct.
+    \end{remark}
+
+    \begin{remark}[What Schur's lemma gives]
+      \label{rem:schur}
+      Applied to the irreducible module $\Sym^{2}(V_{\rho})$, Schur's lemma forces an equivariant
+      admissibility weight to act as $\lambda\cdot\mathrm{Id}$.
+      That is all it gives: \emph{scalarity} of the weight.
+      It determines neither which functional of the local sector the principal-symbol coefficient is,
+      nor the dependence of that coefficient on $\epsilon$, nor its monotonicity.
+      The closure argument reads a determination of the coefficient into a statement about scalarity.
+    \end{remark}
+
+  \section{The missing local covariance law}
+    \label{sec:covariance}
+
+    The free-fraction construction restricts the admissibility weight to a subspace
+    $C_{\mathrm{free}}(x)$.
+    A proper subspace of an irreducible module is not invariant, so such a restriction is not by itself
+    an equivariant operation.
+
+    This does not make a local subspace field illegitimate.
+    A family $C_{\mathrm{free}}(x)$ may transform covariantly under the local action, and invariant
+    scalars --- its rank, or the norm of a distinguished vector --- may then be well defined.
+    No such covariance law is supplied: no transformation rule for
+    $C_{\mathrm{free}}(x)$ is stated, and without one the flat-space determination
+    $A_{\tau}^{\infty}=2$ of~\cite{Beau2026q11}, which rests on equivariance together with
+    irreducibility, cannot be transported to the local coefficient.
+
+    \begin{remark}[Status of this point]
+      \label{rem:covariance-status}
+      The obstruction is therefore an absence, not an impossibility: constructing a covariantly
+      transforming local sector, with an explicit rule allowing Q11 to be applied pointwise, is one of
+      the open routes listed in Section~\ref{sec:remaining}.
+    \end{remark}
+
+  \section{Status of LC-O2-O1}
+    \label{sec:status}
+
+    \begin{itemize}
+      \item The free-fraction law does \textbf{not} close LC-O2-O1, and the identity
+        $\epsilon(x)=1+2g^{\tau\tau}(x)$ does not follow.
+      \item The partial-trace form does \textbf{not} follow from~\cite{Beau2026w1}
+        (Proposition~\ref{prop:provenance}), and the trace step has a type mismatch
+        (Proposition~\ref{prop:type}).
+      \item What \textbf{survives} is the co-metric statement
+        $g^{\tau\tau}/g^{\tau\tau}_{\infty}=1-\epsilon$ (Proposition~\ref{prop:co-ansatz}); it is not
+        the capacity lapse and does not yield time dilation.
+      \item \textbf{LC-O2-O1 is reopened.} Remark~3.2 of~\cite{Beau2026lco2} recovers its original
+        status: an explicitly declared postulate, physically coherent and consistent with the
+        Schwarzschild weak-field limit, but not derived.
+      \item The results of~\cite{Beau2026lco2} that take $R(x)$ as given --- the local Born--Infeld
+        sphere, the fibrewise temporal residual map, and the gravitational time-dilation corollary ---
+        are \textbf{unaffected}.
+      \item The negative result is \textbf{narrow}: it refutes the free-fraction law, not scalar
+        closure in general (Remark~\ref{rem:reciprocal}).
+    \end{itemize}
+
+  \section{The reopened content}
+    \label{sec:remaining}
+
+    The following are open, and are listed as candidate routes rather than as established
+    requirements.
+
+    \begin{enumerate}
+      \item \textbf{Monotonicity.} Any closure must make the temporal co-metric coefficient increase
+        where capacity is consumed (Remark~\ref{rem:physical}), and this should follow from the
+        construction rather than be imposed on it.
+        Whether a derived scalar law with this property exists is open
+        (Remark~\ref{rem:reciprocal}).
+      \item \textbf{Local covariance.} A transformation rule for the local admissible sector, allowing
+        the flat-space anchor of~\cite{Beau2026q11} to be applied pointwise, is missing
+        (Section~\ref{sec:covariance}).
+      \item \textbf{Typing of the occupancy.} If the occupancy is to enter through a trace, the
+        corresponding occupation operator or weighted projector must be defined
+        (Remark~\ref{rem:type-fix}).
+      \item \textbf{Candidate: an operator-valued datum.} One candidate for the datum controlling the
+        coefficient is the local projector $P_{\mathrm{free}}(x)$, with the reduction derived rather
+        than posited.
+        We do not claim that a scalar datum is insufficient; this is one route among others.
+      \item \textbf{Relation to the spatial components.} Reproducing a Schwarzschild exterior requires
+        $g^{\tau\tau}$ and $g^{rr}$ to vary differently.
+        Whether closing the temporal bridge LC-O2-O1 alone requires a joint temporal--spatial law is
+        not settled here.
+    \end{enumerate}
 
   \section{Conclusion}
     \label{sec:conclusion}
 
-    We have closed LC-O2-O1.
-    The local capacity radius $R(x)^{2}=1-\epsilon(x)$ and the metric radius
-    $R(x)^{2}=-2g^{\tau\tau}(x)$ are the same quantity, once the occupancy field is
-    defined as a quadratic occupancy in $\Sym^{2}(V_{\rho})$.
+    The bridge LC-O2-O1 is not closed by the free-fraction law.
+    Under that law together with the Q11 identification $g^{\tau\tau}=-A_{\tau}$ and a diagonal
+    temporal block, the metric radius varies as $1/(1-\epsilon)$ while the capacity radius varies as
+    $1-\epsilon$; the two coincide only in the homogeneous vacuum
+    (Theorem~\ref{thm:nogo}).
+    No available renormalisation repairs this (Section~\ref{sec:renorm}).
+    The closure construction additionally rests on a partial-trace form that its cited source does not
+    supply (Proposition~\ref{prop:provenance}) and that has a type mismatch
+    (Proposition~\ref{prop:type}).
 
-    The proof proceeds through two steps.
-    First, the local temporal coefficient of the admissibility operator is reduced by the
-    free quadratic capacity fraction:
-    \[
-      A_{\tau}(x)=2\bigl(1-\epsilon(x)\bigr).
-    \]
-    This follows from the $\SU(2)$-invariance of the admissibility weight (Schur's lemma)
-    and the orthogonality of the occupied/free decomposition.
-    Second, the principal-symbol identification gives
-    \[
-      g^{\tau\tau}(x)=-\frac{A_{\tau}(x)}{4}.
-    \]
-    Combining these two identities yields $R(x)^{2}=1-\epsilon(x)=-2g^{\tau\tau}(x)$.
-    The bridge is closed spectrally, without the Einstein equation.
-    The open bridge of Remark~3.2 of~\cite{Beau2026lco2} is hereby upgraded to a theorem.
+    The failure is one of direction rather than of normalisation: a free-fraction law moves the
+    temporal coefficient the wrong way.
+    The postulate of~\cite{Beau2026lco2} remains available and physically coherent.
+    This result identifies why the free-fraction construction fails and clarifies the surviving
+    co-metric statement.
 
-    \newpage
+    \paragraph{Interpretive outlook.}
+      Beyond the formal content, and without claiming it as a result, the pattern is suggestive: the
+      quantity that the free-fraction law controls cleanly is the co-metric ratio, not the lapse.
+      If local capacity constrains the co-metric more directly than the proper-time lapse, then the
+      capacity language may be better suited to the symbol side of the correspondence than to the
+      metric side, and a closure of LC-O2-O1 would have to pass through an explicit inversion step
+      rather than around it.
+      This reading is interpretive and forms no part of Theorem~\ref{thm:nogo}.
+
     \bibliographystyle{plain}
     \bibliography{cosmochrony-bibliography}
 
