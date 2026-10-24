@@ -6,11 +6,6 @@ Trace Reduction, Co-Metric Inversion, and the Remaining Operator Problem
 (LC-O2-O1 of the Lorentz-Capacity Sub-Programme)*
 (`Beau2026lco2o1`).
 
-> **Version 2.0 supersedes version 1.0.1 (and the original version 1.0).**
-> Versions 1.0 and 1.0.1 claimed to close the
-> capacity-metric bridge. That claim is **withdrawn**: the closure does not hold.
-> Version 2.0 replaces it with a precise negative result and reopens LC-O2-O1.
-
 ## Overview
 
 The paper **LC-O2** (`Beau2026lco2`) extends the temporal residual map
@@ -20,7 +15,9 @@ a local Born-Infeld capacity radius $R(x)$, defined on two sides:
 - **Capacity side:** $R_{\mathrm{capacity}}(x)^2 = 1 - \epsilon(x)$, with
   $\epsilon(x)$ the local spectral occupancy field.
 - **Metric side:** $R_{\mathrm{metric}}(x)^2 = g_{\tau\tau}(x)/g_{\tau\tau}^\infty$,
-  with $g_{\tau\tau}^\infty = -\tfrac{1}{2}$.
+  with $g_{\tau\tau}^\infty = -1/A_\tau^\infty$ and $A_\tau^\infty > 0$ postulated: Q11 leaves the temporal
+  coefficient free, and the normalisation $g^{\mu\nu} = 2\eta^{\mu\nu}$ ($A_\tau^\infty = 2$) is a choice of
+  units.
 
 Their equivalence is stated in LC-O2 (Remark 3.2, Section 7.3) as an open
 bridge, LC-O2-O1. This paper asks whether a scalar reduction of the local
@@ -32,8 +29,8 @@ admissibility weight closes it, and shows that it does not.
 
 $$A_\tau(x) = A_\tau^\infty\,(1 - \epsilon(x)),$$
 
-together with the Q11 principal-symbol identification $g^{\tau\tau} = -A_\tau$
-(flat-space value $g^{\tau\tau,\infty} = -2$, from $g^{\mu\nu} = 2\eta^{\mu\nu}$)
+with any postulated $A_\tau^\infty > 0$, together with the principal-symbol identification
+$g^{\tau\tau} = -A_\tau$ (flat-space value $g^{\tau\tau,\infty} = -A_\tau^\infty$)
 **and a diagonal temporal block** $g^{\tau i} = 0$ — without which
 $g_{\tau\tau} \neq 1/g^{\tau\tau}$ in general. Then
 
@@ -41,7 +38,7 @@ $$R_{\mathrm{metric}}(x)^2 = \frac{1}{1 - \epsilon(x)},$$
 
 so that $R_{\mathrm{metric}}^2 = R_{\mathrm{capacity}}^2$ requires
 $(1-\epsilon)^2 = 1$, hence $\epsilon = 0$ in the physical range
-$0 \le \epsilon < 1$.
+$0 \le \epsilon < 1$. The value of $A_\tau^\infty$ cancels.
 
 **The free-fraction law closes the homogeneous vacuum and nothing else.**
 
@@ -56,15 +53,15 @@ jointly to close the temporal bridge.
 The failure is one of *direction*, not of normalisation: a free-fraction law
 makes the temporal co-metric coefficient *decrease* with occupancy, whereas a
 Schwarzschild exterior requires it to *increase*
-($A_\tau = 2/(1-r_s/r)$, so that $|g_{\tau\tau}|$ decreases and clocks slow).
+($A_\tau = A_\tau^\infty/(1-r_s/r)$, so that $|g_{\tau\tau}|$ decreases and clocks slow).
 
 ## No renormalisation repairs it
 
 - **Constant rescaling is inert.** For $\widetilde g^{\mu\nu} = \kappa g^{\mu\nu}$
   the factor cancels in *both* normalised ratios (it scales numerator and
   denominator alike, and $\widetilde g_{\tau\tau} = \kappa^{-1} g_{\tau\tau}$).
-  Taking $\kappa = 1/4$ reproduces the flat-space value $-1/2$ used in v1.0 while
-  leaving the no-go intact.
+  From $A_\tau^\infty = 2$, taking $\kappa = 1/4$ reproduces the flat-space value $-1/2$ used in the proposed
+  derivation while leaving the no-go intact.
 - **A local conformal factor would beg the question.** Agreement would require
   $\Omega^2(x) \propto (1-\epsilon(x))^{-2}$ — a new law read off the desired
   answer, which would also rescale the spatial components, and which appears in no
@@ -82,14 +79,13 @@ $$\frac{g^{\tau\tau}}{g^{\tau\tau}_\infty} = 1-\epsilon \quad \text{(admissible 
 The co-metric statement can be posed as an ansatz, but $R_{\mathrm{co}}$ is the
 *metric inverse* of the capacity lapse and does not govern proper-time dilation.
 
-## Three defects of the withdrawn derivation
+## Three defects of the free-fraction derivation
 
 1. **The trace form is a fresh postulate.** W1 (`Beau2026w1`) supplies cumulative
    admissibility weights $a_q(s)$ of a filtered *Dirichlet form* — a coefficient
    multiplying squared increments, not a partial trace, and with no dependence on
-   any occupancy field. Q11 supplies a *Casimir eigenvalue*
-   $A_\tau = \mathcal{C}_{\mathfrak{su}(2)}|_{\mathrm{Sym}^2(V_\rho)} = 2$, not a
-   normalised trace over a variable subspace.
+   any occupancy field. Q11 fixes no value of $A_\tau$: spatial $\mathrm{SU}(2)$ invariance leaves it free, and
+   its Casimir value $2$ is a choice of units, not a normalised trace over a variable subspace.
 
 2. **Type mismatch: vector versus subspace.** The occupancy is defined by the
    *norms of vectors* $C_{\mathrm{occ}}, C_{\mathrm{max}} \in \mathrm{Sym}^2(V_\rho)$,
@@ -104,8 +100,8 @@ The co-metric statement can be posed as an ansatz, but $R_{\mathrm{co}}$ is the
    module is not invariant, so restricting the weight to $C_{\mathrm{free}}(x)$ is
    not by itself equivariant. This is an *absence*, not an impossibility: a family
    $C_{\mathrm{free}}(x)$ may well transform covariantly, with invariant scalars
-   (its rank, or the norm of a distinguished vector) well defined. What v1.0 lacked
-   was any such transformation rule, without which Q11's flat-space anchor cannot
+   (its rank, or the norm of a distinguished vector) well defined. What is missing
+   is any such transformation rule, without which the homogeneous form of Q11 cannot
    be transported pointwise. Schur's lemma forces *scalarity* only.
 
 Defects 2 and 3 are independent of the inversion: they would persist even if the
@@ -114,22 +110,22 @@ monotonicity were correct.
 ## Status
 
 - Free-fraction closure of the capacity-metric bridge: **disproved** (Theorem 3.1)
-- Attribution of the partial-trace form to W1: **withdrawn**; the trace step is
+- Attribution of the partial-trace form to W1: **not supported**; the trace step is
   additionally **mistyped**
 - Local covariance law for $C_{\mathrm{free}}(x)$: **missing** (an absence, not an
   impossibility)
 - Co-metric statement $g^{\tau\tau}/g^{\tau\tau}_\infty = 1-\epsilon$: **survives**
   as an admissible ansatz
-- **LC-O2-O1: reopened**
-- Remark 3.2 of LC-O2: recovers its original status — an explicitly declared
-  postulate, physically coherent and consistent with the Schwarzschild weak-field
-  limit, but **not derived**
+- **LC-O2-O1: open**
+- Remark 3.2 of LC-O2 states the equivalence as an explicitly declared
+  postulate, physically coherent and consistent with a supplied Schwarzschild weak-field
+  metric, but **not derived**
 
 Results of LC-O2 that take $R(x)$ as given — the local Born-Infeld sphere, the
 fibrewise temporal residual map, the gravitational time-dilation corollary — are
 **unaffected**.
 
-## The reopened content
+## Open content
 
 Open questions, listed as candidate routes rather than established requirements:
 
@@ -138,7 +134,7 @@ Open questions, listed as candidate routes rather than established requirements:
    construction rather than be imposed. Whether a *derived* scalar law with this
    property exists is open.
 2. **Local covariance.** A transformation rule for the local admissible sector,
-   allowing Q11's flat-space anchor to be applied pointwise.
+   allowing the homogeneous form of Q11 to be applied pointwise.
 3. **Typing of the occupancy.** If occupancy is to enter through a trace, the
    corresponding occupation operator or weighted projector must be defined.
 4. **Candidate: an operator-valued datum.** The local projector
@@ -159,9 +155,9 @@ LorCap -> TempProj -> LC-O2 -> LC-O2-O1 (no-go)
 | Paper | Role |
 |-------|------|
 | LC-O2 (`Beau2026lco2`) | Open problem statement (Remark 3.2, Section 7.3) |
-| W1 (`Beau2026w1`) | Admissibility weights (Dirichlet form) — *attribution corrected* |
-| Q6b (`Beau2026q6b`) | Principal-symbol reconstruction of the effective metric |
-| Q11 (`Beau2026q11`) | Co-metric normalisation $g^{\mu\nu} = 2\eta^{\mu\nu}$, $A_\tau^\infty = 2$ |
+| W1 (`Beau2026w1`) | Admissibility weights (Dirichlet form); no partial-trace form |
+| Q5b (`Beau2026q5b`) | Principal symbol $\sigma_2(L_{\mathrm{eff}}) = g^{\mu\nu}k_\mu k_\nu$, under [H-L] and [H-lift] |
+| Q11 (`Beau2026q11`) | Conditional homogeneous form; $A_\tau$ free, so $A_\tau^\infty$ is postulated |
 
 ## Repository Contents
 

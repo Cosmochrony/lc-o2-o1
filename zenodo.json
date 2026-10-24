@@ -5,5 +5,5 @@
   "publication_type": "workingpaper",
   "zenodo_id": 20332042,
   "doi": "10.5281/zenodo.20332042",
-  "notes": "Version 2.0 supersedes versions 1.0 and 1.0.1. The claimed closure of LC-O2-O1 from the scalar free-fraction law is withdrawn. The current version establishes the narrower no-go result and reopens the bridge."
+  "notes": "Version 2.1 removes the attribution of the flat-space value A_tau = 2 to Q11, which leaves the temporal coefficient free: the flat-space value is postulated, and the no-go for the scalar free-fraction law holds for any such value. The bridge LC-O2-O1 remains open."
 }
