@@ -61,7 +61,9 @@
     treats it as a subspace.
     The result is narrow --- a reciprocal scalar law would close the bridge algebraically --- so what
     fails is the free-fraction law, not scalar closure in general.
-    LC-O2-O1 is reopened.
+    The no-go does not depend on the flat-space value $A_{\tau}^{\infty}$, which no source fixes: Q11 leaves the
+    temporal coefficient free.
+    LC-O2-O1 is open.
     Interpretively, and as no part of the formal result, capacity appears to constrain the co-metric
     more directly than the lapse.
   \end{abstract}
@@ -91,9 +93,12 @@
       R_{\mathrm{metric}}(x)^{2}
       := \frac{g_{\tau\tau}(x)}{g_{\tau\tau}^{\infty}},
       \qquad
-      g_{\tau\tau}^{\infty}=-\tfrac12 ,
+      g_{\tau\tau}^{\infty}=-\frac{1}{A_{\tau}^{\infty}} ,
     \end{equation}
-    the flat-space value following from the Q11 normalisation $g^{\mu\nu}=2\eta^{\mu\nu}$.
+    where $A_{\tau}^{\infty}>0$ is a postulated flat-space value of the temporal coefficient.
+    Q11~\cite{Beau2026q11} shows that spatial $\mathrm{SU}(2)$ invariance leaves that coefficient free, so no
+    source fixes $A_{\tau}^{\infty}$; the normalisation $g^{\mu\nu}=2\eta^{\mu\nu}$, in which
+    $A_{\tau}^{\infty}=2$ and $g_{\tau\tau}^{\infty}=-\tfrac12$, is a choice of units.
     The open problem LC-O2-O1 (Remark~3.2 and Section~7.3 of~\cite{Beau2026lco2}) is to prove that
     these two radii coincide, from admissibility data alone, without importing the Einstein equation
     from the spectral gravity branch.
@@ -103,11 +108,11 @@
     together with a principal-symbol identification $g^{\tau\tau}(x)=-A_{\tau}(x)/4$.
     The argument does not establish LC-O2-O1.
 
-    The factor $\tfrac14$ was not read off the principal symbol of~\cite{Beau2026q11}; it was fixed so
-    that the two definitions would agree, using the flat-space assignment
+    The factor $\tfrac14$ is not read off any principal symbol; it is fixed so
+    that the two definitions agree, using, in the normalisation $A_{\tau}^{\infty}=2$, the flat-space assignment
     $g^{\tau\tau,\infty}=-\tfrac12$.
-    That assignment is the value of the covariant component $g_{\tau\tau}^{\infty}$, not of the
-    contravariant $g^{\tau\tau,\infty}$, which Q11 fixes at $-A_{\tau}^{\infty}=-2$.
+    That assignment is the value of the covariant component $g_{\tau\tau}^{\infty}=-1/A_{\tau}^{\infty}$, not of
+    the contravariant $g^{\tau\tau,\infty}=-A_{\tau}^{\infty}$, which is $-2$ in that normalisation.
     With the correct identification $g^{\tau\tau}=-A_{\tau}$, the free-fraction law delivers the
     reciprocal of~\eqref{eq:Rcap} rather than~\eqref{eq:Rcap}.
 
@@ -129,16 +134,17 @@
     Section~\ref{sec:provenance} shows that the trace reduction rests on an unsupported attribution and
     on a type mismatch.
     Section~\ref{sec:covariance} states what is actually missing on the equivariance side.
-    Sections~\ref{sec:status} and~\ref{sec:remaining} record the status and the reopened content.
+    Sections~\ref{sec:status} and~\ref{sec:remaining} record the status and the open content.
 
   \section{The scalar free-fraction ansatz}
     \label{sec:occupancy}
 
     We retain the definitions of the occupancy field; what fails is the inference drawn from them.
 
-    Following Q11~\cite{Beau2026q11}, let the local rank-three effective sector be
-    $H_{\mathrm{eff}}(x)\simeq \Sym^{2}(V_{\rho})$, equipped with its $\SU(2)$-invariant quadratic
-    norm.
+    Let the local rank-three effective sector be the spin-one module
+    $H_{\mathrm{eff}}(x)\simeq \Sym^{2}(V_{\rho})$, with $V_{\rho}$ the supplied spin-$\tfrac12$ carrier, equipped
+    with its $\SU(2)$-invariant quadratic norm; this is the module that Q7 maps equivariantly to the complexified
+    spatial sector, as recorded in Q11~\cite{Beau2026q11}.
 
     \begin{definition}[Local quadratic occupancy]
       \label{def:local-occupancy}
@@ -162,7 +168,7 @@
       The \emph{free-fraction law} is the hypothesis
       \begin{equation}\label{eq:ansatz}
         A_{\tau}(x)=A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr),
-        \qquad A_{\tau}^{\infty}=2 .
+        \qquad A_{\tau}^{\infty}>0 \text{ postulated}.
       \end{equation}
     \end{definition}
 
@@ -174,8 +180,8 @@
       $g_{\tau\tau}(x)=\bigl(g^{\tau\tau}(x)\bigr)^{-1}$.
     \end{definition}
 
-    Diagonality holds in the homogeneous normalisation $g^{\mu\nu}=2\eta^{\mu\nu}$ of~\cite{Beau2026q11}
-    and in the static configurations considered in~\cite{Beau2026lco2}.
+    Diagonality holds for the homogeneous form of Q11~\cite{Beau2026q11}, Corollary~6.1, which has no mixed
+    temporal--spatial term, and in the static configurations considered in~\cite{Beau2026lco2}.
     It is stated explicitly because the inversion below uses it; without it the relation between
     $g^{\tau\tau}$ and $g_{\tau\tau}$ involves the full inverse of the metric and no elementary
     reciprocal holds.
@@ -183,19 +189,24 @@
   \section{The no-go for the free-fraction law}
     \label{sec:nogo}
 
-    Q11~\cite{Beau2026q11} establishes the effective co-metric in the form
+    Under the hypotheses of its Corollary~6.1 ([H-L] and [H-lift], a supplied full-rank extension satisfying
+    [T] and [INV$^+$] of Q8, and invariance under [ACT$_\tau$] with a negative ordering term),
+    Q11~\cite{Beau2026q11} gives the homogeneous co-metric in the form
     \begin{equation}\label{eq:q11}
-      g^{\mu\nu}=\mathrm{diag}(-A_{\tau},\,2,\,2,\,2),
+      g^{\mu\nu}=\mathrm{diag}(-A_{\tau},\,2\lambda,\,2\lambda,\,2\lambda),
       \qquad
-      A_{\tau}=2=\mathcal{C}_{\mathfrak{su}(2)}\big|_{\Sym^{2}(V_{\rho})},
+      A_{\tau}>0,\ \lambda>0 \text{ independent},
     \end{equation}
-    so $g^{\tau\tau}=-A_{\tau}$ with $g^{\tau\tau,\infty}=-2$ and hence
-    $g_{\tau\tau}^{\infty}=-\tfrac12$.
+    and shows that spatial $\SU(2)$ invariance fixes neither $A_{\tau}$ nor its ratio to $\lambda$; the Casimir value
+    $2$ is a choice of units, not a consequence of invariance.
+    The temporal entry is read off the principal symbol, $g^{\tau\tau}=-A_{\tau}$ (Q5b Theorem~5.2, Q11
+    Theorem~1.1(c)), so $g^{\tau\tau,\infty}=-A_{\tau}^{\infty}$ and
+    $g_{\tau\tau}^{\infty}=-1/A_{\tau}^{\infty}$ with $A_{\tau}^{\infty}>0$ postulated.
 
     \begin{theorem}[Failure of the free-fraction closure]
       \label{thm:nogo}
-      Assume the free-fraction law~\eqref{eq:ansatz}, the Q11 identification
-      $g^{\tau\tau}=-A_{\tau}$, and a diagonal temporal block
+      Assume the free-fraction law~\eqref{eq:ansatz} with any postulated $A_{\tau}^{\infty}>0$, the
+      principal-symbol identification $g^{\tau\tau}=-A_{\tau}$, and a diagonal temporal block
       (Definition~\ref{def:diagonal}).
       Then
       \[
@@ -213,11 +224,11 @@
 
     \begin{proof}
       By~\eqref{eq:ansatz} and~\eqref{eq:q11},
-      $g^{\tau\tau}(x)=-A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr)=-2\bigl(1-\epsilon(x)\bigr)$.
+      $g^{\tau\tau}(x)=-A_{\tau}^{\infty}\bigl(1-\epsilon(x)\bigr)$.
       Diagonality gives
-      $g_{\tau\tau}(x)=\bigl(g^{\tau\tau}(x)\bigr)^{-1}=-\bigl[2(1-\epsilon(x))\bigr]^{-1}$.
-      Dividing by $g_{\tau\tau}^{\infty}=-\tfrac12$ yields
-      $R_{\mathrm{metric}}(x)^{2}=1/(1-\epsilon(x))$.
+      $g_{\tau\tau}(x)=\bigl(g^{\tau\tau}(x)\bigr)^{-1}=-\bigl[A_{\tau}^{\infty}(1-\epsilon(x))\bigr]^{-1}$.
+      Dividing by $g_{\tau\tau}^{\infty}=-1/A_{\tau}^{\infty}$ yields
+      $R_{\mathrm{metric}}(x)^{2}=1/(1-\epsilon(x))$; the value of $A_{\tau}^{\infty}$ cancels.
       Equating with $1-\epsilon(x)$ gives $(1-\epsilon(x))^{2}=1$, whose only root with
       $0\le\epsilon<1$ is $\epsilon=0$.
     \end{proof}
@@ -239,10 +250,11 @@
       The proposed derivation writes the metric definition contravariantly, as
       $R^{2}=-2g^{\tau\tau}$, whereas
       \cite{Beau2026lco2} defines it covariantly, as
-      $R^{2}=g_{\tau\tau}/g_{\tau\tau}^{\infty}=-2g_{\tau\tau}$.
-      It then fixed $g^{\tau\tau}=-A_{\tau}/4$ by imposing $g^{\tau\tau,\infty}=-\tfrac12$, which is
-      the covariant reference value.
-      The factor $\tfrac14$ reconciled the two definitions numerically at the cost of conflating the
+      $R^{2}=g_{\tau\tau}/g_{\tau\tau}^{\infty}$, which is $-2g_{\tau\tau}$ in the normalisation
+      $A_{\tau}^{\infty}=2$.
+      It then fixes $g^{\tau\tau}=-A_{\tau}/4$ by imposing $g^{\tau\tau,\infty}=-\tfrac12$, which in that
+      normalisation is the covariant reference value.
+      The factor $\tfrac14$ reconciles the two definitions numerically at the cost of conflating the
       metric with the co-metric.
     \end{remark}
 
@@ -270,7 +282,7 @@
         \frac{\widetilde g_{\tau\tau}(x)}{\widetilde g_{\tau\tau}^{\infty}}
         =\frac{g_{\tau\tau}(x)}{g_{\tau\tau}^{\infty}} .
       \]
-      In particular $\kappa=\tfrac14$ reproduces the flat-space value
+      In particular, from $A_{\tau}^{\infty}=2$, $\kappa=\tfrac14$ reproduces the flat-space value
       $\widetilde g^{\tau\tau}_{\infty}=-\tfrac12$ used in the proposed derivation while leaving
       Theorem~\ref{thm:nogo} intact.
     \end{proposition}
@@ -339,8 +351,9 @@
       filtered Dirichlet form.
       A Dirichlet weight is a coefficient multiplying squared increments, not a partial trace, and W1
       states no dependence on any occupancy field.
-      Q11~\cite{Beau2026q11} determines $A_{\tau}$ as a Casimir eigenvalue on the irreducible module.
-      A Casimir eigenvalue is not a normalised trace over a variable subspace.
+      Q11~\cite{Beau2026q11} determines no value of $A_{\tau}$: spatial $\SU(2)$ invariance leaves it free, and
+      its Casimir value $2$ is a choice of units.
+      Neither a free invariant scalar nor a Casimir eigenvalue is a normalised trace over a variable subspace.
       Neither source therefore supplies the asserted form, which is an independent hypothesis.
     \end{proof}
 
@@ -395,14 +408,14 @@
     A family $C_{\mathrm{free}}(x)$ may transform covariantly under the local action, and invariant
     scalars --- its rank, or the norm of a distinguished vector --- may then be well defined.
     No such covariance law is supplied: no transformation rule for
-    $C_{\mathrm{free}}(x)$ is stated, and without one the flat-space determination
-    $A_{\tau}^{\infty}=2$ of~\cite{Beau2026q11}, which rests on equivariance together with
-    irreducibility, cannot be transported to the local coefficient.
+    $C_{\mathrm{free}}(x)$ is stated, and without one the homogeneous form of~\cite{Beau2026q11}, which rests on
+    equivariance and fixes no value of $A_{\tau}^{\infty}$, cannot be transported to the local coefficient.
 
     \begin{remark}[Status of this point]
       \label{rem:covariance-status}
       The obstruction is therefore an absence, not an impossibility: constructing a covariantly
-      transforming local sector, with an explicit rule allowing Q11 to be applied pointwise, is one of
+      transforming local sector, with an explicit rule allowing the homogeneous form of Q11 to be applied
+      pointwise, is one of
       the open routes listed in Section~\ref{sec:remaining}.
     \end{remark}
 
@@ -410,17 +423,18 @@
     \label{sec:status}
 
     \begin{itemize}
-      \item The free-fraction law does \textbf{not} close LC-O2-O1, and the identity
-        $\epsilon(x)=1+2g^{\tau\tau}(x)$ does not follow.
+      \item The free-fraction law does \textbf{not} close LC-O2-O1, for any postulated
+        $A_{\tau}^{\infty}>0$, and the identity $\epsilon(x)=1+2g^{\tau\tau}(x)$ of the proposed derivation does
+        not follow.
       \item The partial-trace form does \textbf{not} follow from~\cite{Beau2026w1}
         (Proposition~\ref{prop:provenance}), and the trace step has a type mismatch
         (Proposition~\ref{prop:type}).
       \item What \textbf{survives} is the co-metric statement
         $g^{\tau\tau}/g^{\tau\tau}_{\infty}=1-\epsilon$ (Proposition~\ref{prop:co-ansatz}); it is not
         the capacity lapse and does not yield time dilation.
-      \item \textbf{LC-O2-O1 is reopened.} Remark~3.2 of~\cite{Beau2026lco2} recovers its original
-        status: an explicitly declared postulate, physically coherent and consistent with the
-        Schwarzschild weak-field limit, but not derived.
+      \item \textbf{LC-O2-O1 is open.} Remark~3.2 of~\cite{Beau2026lco2} states the equivalence as an
+        explicitly declared postulate, physically coherent and consistent with a supplied Schwarzschild
+        weak-field metric, but not derived.
       \item The results of~\cite{Beau2026lco2} that take $R(x)$ as given --- the local Born--Infeld
         sphere, the fibrewise temporal residual map, and the gravitational time-dilation corollary ---
         are \textbf{unaffected}.
@@ -428,7 +442,7 @@
         closure in general (Remark~\ref{rem:reciprocal}).
     \end{itemize}
 
-  \section{The reopened content}
+  \section{Open content}
     \label{sec:remaining}
 
     The following are open, and are listed as candidate routes rather than as established
@@ -441,7 +455,7 @@
         Whether a derived scalar law with this property exists is open
         (Remark~\ref{rem:reciprocal}).
       \item \textbf{Local covariance.} A transformation rule for the local admissible sector, allowing
-        the flat-space anchor of~\cite{Beau2026q11} to be applied pointwise, is missing
+        the homogeneous form of~\cite{Beau2026q11} to be applied pointwise, is missing
         (Section~\ref{sec:covariance}).
       \item \textbf{Typing of the occupancy.} If the occupancy is to enter through a trace, the
         corresponding occupation operator or weighted projector must be defined
@@ -460,8 +474,8 @@
     \label{sec:conclusion}
 
     The bridge LC-O2-O1 is not closed by the free-fraction law.
-    Under that law together with the Q11 identification $g^{\tau\tau}=-A_{\tau}$ and a diagonal
-    temporal block, the metric radius varies as $1/(1-\epsilon)$ while the capacity radius varies as
+    Under that law together with the principal-symbol identification $g^{\tau\tau}=-A_{\tau}$ and a diagonal
+    temporal block, for any postulated flat-space value $A_{\tau}^{\infty}$, the metric radius varies as $1/(1-\epsilon)$ while the capacity radius varies as
     $1-\epsilon$; the two coincide only in the homogeneous vacuum
     (Theorem~\ref{thm:nogo}).
     No available renormalisation repairs this (Section~\ref{sec:renorm}).
