@@ -346,11 +346,11 @@
     \end{proposition}
 
     \begin{proof}
-      W1~\cite{Beau2026w1} defines the admissibility weights as cumulative fingerprint capacities,
-      $a_{q}(s)=\sum_{n\le n^{*}}\sigma_{c(s)}(n)$, and establishes their stabilisation as weights of a
-      filtered Dirichlet form.
-      A Dirichlet weight is a coefficient multiplying squared increments, not a partial trace, and W1
-      states no dependence on any occupancy field.
+      W1~\cite{Beau2026w1} treats the admissibility weights as the weights of a filtered Dirichlet form,
+      distinguishes from Q5a's actual weights a partial-sum proxy $b_{q}(s)=\sum_{n\le n^{*}}\sigma_{q,c_q(s)}(n)$
+      for which it keeps a conditional summation inequality, and leaves their convergence, hypothesis [H-w], open.
+      In neither reading is a weight a partial trace: a Dirichlet weight is a coefficient multiplying squared
+      increments, and W1 states no dependence on any occupancy field.
       Q11~\cite{Beau2026q11} determines no value of $A_{\tau}$: spatial $\SU(2)$ invariance leaves it free, and
       its Casimir value $2$ is a choice of units.
       Neither a free invariant scalar nor a Casimir eigenvalue is a normalised trace over a variable subspace.
@@ -424,8 +424,8 @@
 
     \begin{itemize}
       \item The free-fraction law does \textbf{not} close LC-O2-O1, for any postulated
-        $A_{\tau}^{\infty}>0$, and the identity $\epsilon(x)=1+2g^{\tau\tau}(x)$ of the proposed derivation does
-        not follow.
+        $A_{\tau}^{\infty}>0$, and the identity $\epsilon(x)=1+2g^{\tau\tau}(x)$ of the proposed derivation (in
+        the normalisation $A_{\tau}^{\infty}=2$ with the factor $\tfrac14$) does not follow.
       \item The partial-trace form does \textbf{not} follow from~\cite{Beau2026w1}
         (Proposition~\ref{prop:provenance}), and the trace step has a type mismatch
         (Proposition~\ref{prop:type}).
@@ -475,8 +475,8 @@
 
     The bridge LC-O2-O1 is not closed by the free-fraction law.
     Under that law together with the principal-symbol identification $g^{\tau\tau}=-A_{\tau}$ and a diagonal
-    temporal block, for any postulated flat-space value $A_{\tau}^{\infty}$, the metric radius varies as $1/(1-\epsilon)$ while the capacity radius varies as
-    $1-\epsilon$; the two coincide only in the homogeneous vacuum
+    temporal block, for any postulated flat-space value $A_{\tau}^{\infty}$, the metric radius varies as
+    $1/(1-\epsilon)$ while the capacity radius varies as $1-\epsilon$; the two coincide only in the homogeneous vacuum
     (Theorem~\ref{thm:nogo}).
     No available renormalisation repairs this (Section~\ref{sec:renorm}).
     The closure construction additionally rests on a partial-trace form that its cited source does not

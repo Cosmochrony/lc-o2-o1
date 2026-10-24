@@ -81,9 +81,9 @@ The co-metric statement can be posed as an ansatz, but $R_{\mathrm{co}}$ is the
 
 ## Three defects of the free-fraction derivation
 
-1. **The trace form is a fresh postulate.** W1 (`Beau2026w1`) supplies cumulative
-   admissibility weights $a_q(s)$ of a filtered *Dirichlet form* — a coefficient
-   multiplying squared increments, not a partial trace, and with no dependence on
+1. **The trace form is a fresh postulate.** W1 (`Beau2026w1`, version 2.0.1) treats the
+   admissibility weights as weights of a filtered *Dirichlet form*, distinguishes a partial-sum proxy from Q5a's
+   actual weights, and leaves [H-w] open; in no reading is a weight a partial trace, and W1 states no dependence on
    any occupancy field. Q11 fixes no value of $A_\tau$: spatial $\mathrm{SU}(2)$ invariance leaves it free, and
    its Casimir value $2$ is a choice of units, not a normalised trace over a variable subspace.
 
@@ -155,7 +155,7 @@ LorCap -> TempProj -> LC-O2 -> LC-O2-O1 (no-go)
 | Paper | Role |
 |-------|------|
 | LC-O2 (`Beau2026lco2`) | Open problem statement (Remark 3.2, Section 7.3) |
-| W1 (`Beau2026w1`) | Admissibility weights (Dirichlet form); no partial-trace form |
+| W1 (`Beau2026w1`) | Dirichlet-form weights and a partial-sum proxy; [H-w] open; no partial-trace form |
 | Q5b (`Beau2026q5b`) | Principal symbol $\sigma_2(L_{\mathrm{eff}}) = g^{\mu\nu}k_\mu k_\nu$, under [H-L] and [H-lift] |
 | Q11 (`Beau2026q11`) | Conditional homogeneous form; $A_\tau$ free, so $A_\tau^\infty$ is postulated |
 
